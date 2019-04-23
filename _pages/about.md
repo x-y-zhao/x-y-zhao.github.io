@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-This is Dr. Xingyu Zhao's home on the web!
+This is Dr. Xingyu Zhao (Sing You Jaw, if this is easier for you to pronounce my name...). Bla bla bla, to be done...
 
 <!--- powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted --->
 
