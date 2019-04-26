@@ -1,0 +1,379 @@
+
+dtmc
+
+//version:10/04/2019 by Xingyu Zhao.
+//some corner cases: 1. take-off then fly to cell [0,0], cannot do inspection due to lack of battery, safely returned and recharge, then fly to cell [0,0] again and again until crash somewhere...
+
+//scenario 1: fully automatic drone inspection of a wind farm with 6*6=36 wind turbines (crossing point) and 5*5 grid (cells are transport channels)
+// a fixed controller, i.e. always starting from the [0,0] cell and move from left to right. then go up, and move from left to right, and so on so forth.
+// when within each cell, the drone will inspect 1, 2 or 4 winturbines depends which cell it is in.
+// the recharge box, i.e. the base, is in the middle of the grid [2,2]
+
+
+//battery specfication, as https://www.maxamps.com/lipo-11000-6s-22-2v-battery-pack?cat=363 and Matt O.'s surey
+//capacity: 6000-11000mAh
+//voltage: ~22v (say 20, 22, 25 as 3 levels)
+//engergy: 180wh
+//approx drone working time: 30 mins
+//approxiamte constant power: 360w
+//correpsonding current: ~16.36A (18A, 16.36A, 14.4A for coorrepsponding level of voltage)
+
+
+// Probability of a failure during take-off and landing
+const double p_f_tl=0;
+
+// Probability of a failure during inspction
+const double p_f_ins=0;
+
+//Probability of failure during the fly in one single cell
+const double p_f_fly=0;
+
+// search grid size 5*5
+const int Xcoord = 5;
+const int Ycoord = 5;
+
+// base coordinates, starting from [0,0] and cell index, also starts from 0
+const int base_x=2;
+const int base_y=2;
+
+
+// the full charged capacity of a new battery. realistically 5500 -- 10000 mAh. to avoid the space explosion, we rescale it to Ah*10. So the range should be [55-100]
+const int c_full;
+
+
+// on average, by each recharge, the battery capacity will fade 0.2%.
+const double p_cap_fade = 0.002;
+
+//maxium charge times, the battery will be abondoned and replaced by a new one after this mumber
+const int max_charge_num=100;
+
+//the changing full charged capacity.
+formula c_full_vary=floor(c_full*(1-p_cap_fade*n_charge));
+
+// state of charge, as a percentage
+formula SoC=c_now/c_full_vary;
+
+// the safe threshold, normally, 0.2, 0.3 etc.
+const double safe_t;
+
+
+// this is the probability that the windspeed will change from one state to the other.
+const double p_wsp_change;
+
+
+module Drone
+
+	// mode of the drone
+	s : [0..7] init 0; 	
+	// 0 - fully charged and ready to take-off.
+	// 1 - take off succesfully and ready to fly
+	// 2 - fly to the target cell and arrived
+	// 3 - inspect wind turbine and done
+	// 4 - return to base and prepare to land
+	// 5 - landed
+	// 6 - failure, mission aborted
+	// 7 - mission end successfully
+
+	[TO] s=0 -> (1-p_f_tl) : (s'=1) + p_f_tl : (s'=6); // with some probability to fail in the take-off
+	[lack_batt] s=0 -> (s'=6); // don't have enough battery to take off; 
+
+	[flytt] (s=1) -> pow((1-p_f_fly),dis_ct):(s'=2)+ (1-pow((1-p_f_fly),dis_ct)):(s'=6);
+	[land] (s=1) -> (1-p_f_tl) : (s'=5) + p_f_tl : (s'=6); // once take-off and find out there is no enough battery to fly to target cell, thus, land, recharge and try later
+	[lack_batt] s=1 -> (s'=6);
+
+	[ins] (s=2)-> p_f_ins : (s'=6) + (1-p_f_ins) : (s'=3); // with some probability to fail in the inspection
+	[rettb] (s=2) -> pow((1-p_f_fly),dis_cb):(s'=4)+ (1-pow((1-p_f_fly),dis_cb)):(s'=6);
+	[lack_batt] (s=2)->(s'=6);
+
+	[flytt] (s=3) -> pow((1-p_f_fly),dis_ct):(s'=2)+ (1-pow((1-p_f_fly),dis_ct)):(s'=6);// after a inspection, fly to the target cell
+	[rettb] (s=3) -> pow((1-p_f_fly),dis_cb):(s'=4)+ (1-pow((1-p_f_fly),dis_cb)):(s'=6);// or fly to base due to battery constraint
+	[lack_batt] (s=3)->(s'=6);
+
+	[land] (s=4)-> (1-p_f_tl) : (s'=5) + p_f_tl : (s'=6); // with some probability to fail in the landing
+	[lack_batt] s=4 -> (s'=6);
+
+	[end_rettb] (s=3) -> pow((1-p_f_fly),dis_cb):(s'=4)+ (1-pow((1-p_f_fly),dis_cb)):(s'=6);// or fly to base due to battery constraint
+	[end_land] (s=4) -> (1-p_f_tl) : (s'=7) + p_f_tl : (s'=6); 
+
+
+	[lack_batt] SoC<=0 -> (s'=6);
+
+	[recharge] (s=5)->(s'=0);
+
+endmodule
+
+
+module Grid
+	
+	// current position of the drone
+	cpos_x : [0..4] init base_x;
+	cpos_y : [0..4] init base_y;
+
+	// target position
+	tpos_x : [0..4] init 0;
+	tpos_y : [0..4] init 0;
+
+	
+	// if the target cell has been visited before: 0 -- no.  1 -- yes.
+	is_tar_visited : [0..1] init 0;
+	
+	// number of unchecked wind turbine in a given cell
+	n_uc_wt :[0 ..4 ] init 1;
+
+
+
+	//set the current postion as the target cell. Since newly arrived at the cell, there must be some WT to be inspected and the number is calculated
+	[flytt] (s=1) &((cpos_x!=tpos_x) | (cpos_y!=tpos_y)) & (is_tar_visited=0)-> (cpos_x'=tpos_x) & (cpos_y'=tpos_y)&(n_uc_wt'=n_wt_to_ins)&(is_tar_visited'=1); 
+	[flytt] (s=1) & ((cpos_x!=tpos_x) | (cpos_y!=tpos_y)) & (is_tar_visited=1)-> (cpos_x'=tpos_x) & (cpos_y'=tpos_y)&(is_tar_visited'=1); 
+
+	//after did inspection, flying to next cell. However, when it is the last cell [4,4], this will not apply.
+	[flytt] (s=3) & ((cpos_x!=tpos_x) | (cpos_y!=tpos_y)) &!((cpos_x=4)&(cpos_y=4)) -> (cpos_x'=tpos_x) & (cpos_y'=tpos_y)&(n_uc_wt'=n_wt_to_ins)&(is_tar_visited'=1);
+
+	//after did inspection, and this is the last cell [4,4]. then flys back to base and mission ends
+	[end_rettb] (s=3) & ((cpos_x=4)&(cpos_y=4))&(n_uc_wt=0) -> (cpos_x'=0) & (cpos_y'=0); //return to [0,0], missleading but do it on purpose, to distinguish from normal return.
+	[end_land] (s=4)&((cpos_x=0) &(cpos_y=0)) -> true; 
+	
+ 
+	//after did a takeoff/inspection, there are still other wt to be inspected, thus, stay in the cell.
+	[flytt] (s=1) & ((cpos_x=tpos_x) & (cpos_y=tpos_y)) & (is_tar_visited=1) -> true;
+	[flytt] (s=1) & ((cpos_x=tpos_x) & (cpos_y=tpos_y)) & (is_tar_visited=0) -> (n_uc_wt'=n_wt_to_ins)&(is_tar_visited'=1);//this is a special case when after inspecting [1,2], the robot flys back to recharge. Then take-off and stay in this cell
+	[flytt] (s=3) & ((cpos_x=tpos_x) & (cpos_y=tpos_y))  -> true;
+
+	[rettb] (s=1)   -> (cpos_x'=base_x) & (cpos_y'=base_y); // fly back to base for recharging, no change of the target cell
+	[rettb] (s=3) & !((cpos_x=4)&(cpos_y=4)&(n_uc_wt=0)) -> (cpos_x'=base_x) & (cpos_y'=base_y); // fly back to base for recharging, no change of the target cell, however, when it is the last cell [4,4], this will not apply.
+	[rettb] (s=2)  &(cpos_x=tpos_x)&(cpos_y=tpos_y)-> (cpos_x'=base_x) & (cpos_y'=base_y); //arrived, but SoC<0.3 then has to fly back. leave the target unchanged.
+
+	[land] ((cpos_x=base_x) & (cpos_y=base_y))  -> true;
+
+	
+	// in cell [0,0], there is only one bottom-left corner needs to be inspected
+	[ins] (s=2)&(cpos_x=0)&(cpos_y=0)&(n_uc_wt=1)-> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+	
+	// in cell [1,0], there is only one bottom-left corner needs to be inspected
+	[ins] (s=2)&(cpos_x=1)&(cpos_y=0)&(n_uc_wt=1)-> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [2,0], there are two bottom-left and bottom-right corners need to be inspected
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=0)&(n_uc_wt=2) -> (n_uc_wt'=1);
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=0)&(n_uc_wt=1) -> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+	
+	// in cell [3,0], there is only one bottom-right corner needs to be inspected
+	[ins] (s=2)&(cpos_x=3)&(cpos_y=0)&(n_uc_wt=1)-> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [4,0], there is only one bottom-right corner needs to be inspected
+	[ins] (s=2)&(cpos_x=4)&(cpos_y=0)&(n_uc_wt=1)-> (tpos_x'=cpos_x)&(tpos_y'=cpos_y+1)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [4,1], there is only one bottom-right corner needs to be inspected
+	[ins] (s=2)&(cpos_x=4)&(cpos_y=1)&(n_uc_wt=1)-> (tpos_x'=cpos_x-1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [3,1], there is only one bottom-right corner needs to be inspected
+	[ins] (s=2)&(cpos_x=3)&(cpos_y=1)&(n_uc_wt=1)-> (tpos_x'=cpos_x-1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [2,1], there are two bottom-left and bottom-right corners need to be inspected
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=1)&(n_uc_wt=2) -> (n_uc_wt'=1);
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=1)&(n_uc_wt=1) -> (tpos_x'=cpos_x-1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [1,1], there is only one bottom-left corner needs to be inspected
+	[ins] (s=2)&(cpos_x=1)&(cpos_y=1)&(n_uc_wt=1)-> (tpos_x'=cpos_x-1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [0,1], there is only one bottom-left corner needs to be inspected
+	[ins] (s=2)&(cpos_x=0)&(cpos_y=1)&(n_uc_wt=1)-> (tpos_x'=cpos_x)&(tpos_y'=cpos_y+1)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [0,2], there are two top-left and bottom-left corners need to be inspected
+	[ins] (s=2)&(cpos_x=0)&(cpos_y=2)&(n_uc_wt=2)-> (n_uc_wt'=1);
+	[ins] (s=2)&(cpos_x=0)&(cpos_y=2)&(n_uc_wt=1)-> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [1,2], there are two top-left and bottom-left corners need to be inspected
+	[ins] (s=2)&(cpos_x=1)&(cpos_y=2)&(n_uc_wt=2)-> (n_uc_wt'=1);
+	[ins] (s=2)&(cpos_x=1)&(cpos_y=2)&(n_uc_wt=1)-> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [2,2], there are 4 corners need to be inspected
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=2)&(n_uc_wt=4)-> (n_uc_wt'=3);
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=2)&(n_uc_wt=3)-> (n_uc_wt'=2);
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=2)&(n_uc_wt=2)-> (n_uc_wt'=1);
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=2)&(n_uc_wt=1)-> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [3,2], there are two top-right and bottom-right corners need to be inspected
+	[ins] (s=2)&(cpos_x=3)&(cpos_y=2)&(n_uc_wt=2)-> (n_uc_wt'=1);
+	[ins] (s=2)&(cpos_x=3)&(cpos_y=2)&(n_uc_wt=1)-> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [4,2], there are two top-right and bottom-right corners need to be inspected
+	[ins] (s=2)&(cpos_x=4)&(cpos_y=2)&(n_uc_wt=2)-> (n_uc_wt'=1);
+	[ins] (s=2)&(cpos_x=4)&(cpos_y=2)&(n_uc_wt=1)-> (tpos_x'=cpos_x)&(tpos_y'=cpos_y+1)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [4,3], there is only one top-right corner need to be inspected
+	[ins] (s=2)&(cpos_x=4)&(cpos_y=3)&(n_uc_wt=1)-> (tpos_x'=cpos_x-1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [3,3], there is only one top-right corner need to be inspected
+	[ins] (s=2)&(cpos_x=3)&(cpos_y=3)&(n_uc_wt=1)-> (tpos_x'=cpos_x-1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [2,3], there are two top-right and top-left corners need to be inspected
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=3)&(n_uc_wt=2)-> (n_uc_wt'=1);
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=3)&(n_uc_wt=1)-> (tpos_x'=cpos_x-1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [1,3], there is only one top-left corner need to be inspected
+	[ins] (s=2)&(cpos_x=1)&(cpos_y=3)&(n_uc_wt=1)-> (tpos_x'=cpos_x-1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [0,3], there is only one top-left corner need to be inspected
+	[ins] (s=2)&(cpos_x=0)&(cpos_y=3)&(n_uc_wt=1)-> (tpos_x'=cpos_x)&(tpos_y'=cpos_y+1)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [0,4], there is only one top-left corner need to be inspected
+	[ins] (s=2)&(cpos_x=0)&(cpos_y=4)&(n_uc_wt=1)-> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [1,4], there is only one top-left corner need to be inspected
+	[ins] (s=2)&(cpos_x=1)&(cpos_y=4)&(n_uc_wt=1)-> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [2,4], there are two top corners need to be inspected
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=4)&(n_uc_wt=2)-> (n_uc_wt'=1);
+	[ins] (s=2)&(cpos_x=2)&(cpos_y=4)&(n_uc_wt=1)-> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [3,4], there is only one top-right corner need to be inspected
+	[ins] (s=2)&(cpos_x=3)&(cpos_y=4)&(n_uc_wt=1)-> (tpos_x'=cpos_x+1)&(tpos_y'=cpos_y)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	// in cell [4,4], there is only one top-right corner need to be inspected
+	[ins] (s=2)&(cpos_x=4)&(cpos_y=4)&(n_uc_wt=1)-> (tpos_x'=0)&(tpos_y'=0)&(n_uc_wt'=0)&(is_tar_visited'=0);
+
+	
+
+endmodule
+
+
+
+
+module Environment
+
+	wsp : [1..2] init 1;// 1 -- low wind speed. 2-- high wind speed. mission always starts at low wsp.
+	
+	[TO] wsp=1 -> (1-p_wsp_change) : (wsp'=1) + p_wsp_change: (wsp'=2);
+	[TO] wsp=2 -> (1-p_wsp_change) : (wsp'=2) + p_wsp_change: (wsp'=1);
+
+	[flytt] wsp=1 -> (1-p_wsp_change) : (wsp'=1) + p_wsp_change: (wsp'=2);
+	[flytt] wsp=2 -> (1-p_wsp_change) : (wsp'=2) + p_wsp_change: (wsp'=1);
+
+	[ins] wsp=1 -> (1-p_wsp_change) : (wsp'=1) + p_wsp_change: (wsp'=2);
+	[ins] wsp=2 -> (1-p_wsp_change) : (wsp'=2) + p_wsp_change: (wsp'=1);
+
+	[rettb] wsp=1 -> (1-p_wsp_change) : (wsp'=1) + p_wsp_change: (wsp'=2);
+	[rettb] wsp=2 -> (1-p_wsp_change) : (wsp'=2) + p_wsp_change: (wsp'=1);
+
+	[end_rettb] wsp=1 -> (1-p_wsp_change) : (wsp'=1) + p_wsp_change: (wsp'=2);
+	[end_rettb] wsp=2 -> (1-p_wsp_change) : (wsp'=2) + p_wsp_change: (wsp'=1);
+	
+	[land] wsp=1 -> (1-p_wsp_change) : (wsp'=1) + p_wsp_change: (wsp'=2);
+	[land] wsp=2 -> (1-p_wsp_change) : (wsp'=2) + p_wsp_change: (wsp'=1);
+	
+	[end_land] wsp=1 -> (1-p_wsp_change) : (wsp'=1) + p_wsp_change: (wsp'=2);
+	[end_land] wsp=2 -> (1-p_wsp_change) : (wsp'=2) + p_wsp_change: (wsp'=1);
+
+	[recharge] wsp=1 -> 1 : (wsp'=1) + 0: (wsp'=2);
+	[recharge] wsp=2 -> 0 : (wsp'=2) + 1: (wsp'=1);
+
+endmodule
+
+
+
+
+module Battery
+
+	// mode of the battery
+	v : [0..2] init 2;
+	// 2 - high terminal voltage during 100%-75% SoC 
+	// 1- medium terminal voltage during 75%-25% SoC
+	// 0 - low terminal voltage during 25%-0% SoC
+
+	//current charge of the battery, [0, 100]
+	c_now:[0..c_full] init c_full;
+
+	//number of charges
+	n_charge: [0..max_charge_num] init 0;
+	
+	// according to the SoC to determine v
+	[TO] ((c_now-c_tol)/c_full_vary>0.75)& ((c_now-c_tol-c_ftt-c_ins)/c_full_vary>=safe_t) -> (c_now'=c_now-c_tol)&(v'=2);
+	[TO] ((c_now-c_tol)/c_full_vary<=0.75)& ((c_now-c_tol)/c_full_vary>=0.25) & ((c_now-c_tol-c_ftt-c_ins)/c_full_vary>=safe_t)-> (c_now'=c_now-c_tol)&(v'=1);
+	[TO] ((c_now-c_tol)/c_full_vary<0.25) & ((c_now-c_tol-c_ftt-c_ins)/c_full_vary>=safe_t)-> (c_now'=c_now-c_tol)&(v'=0);
+	[lack_batt] (s=0)&((c_now-c_tol-c_ftt-c_ins)/c_full_vary<safe_t)-> true;//don't have enough battery to take-off
+
+	
+
+	[flytt] ((c_now-c_ftt-c_ins)/c_full_vary>=safe_t)&((c_now-c_ftt)/c_full_vary>0.75) ->(c_now'=c_now-c_ftt)&(v'=2);
+	[flytt] ((c_now-c_ftt-c_ins)/c_full_vary>=safe_t)&((c_now-c_ftt)/c_full_vary<=0.75)& ((c_now-c_ftt)/c_full_vary>=0.25) -> (c_now'=c_now-c_ftt)&(v'=1);
+	[flytt] ((c_now-c_ftt-c_ins)/c_full_vary>=safe_t)&((c_now- c_ftt)/c_full_vary<0.25) -> (c_now'=c_now-c_ftt)&(v'=0);
+
+	[land] (s=1)&((c_now- c_ftt-c_ins)/c_full_vary<safe_t) &((c_now-c_tol)/c_full_vary>0)-> true; // this cannot be deleted, since each time finished a mission, the (c_now- c_ftt-c_ins)/c_full_vary kind of calculation is based on the new voltage and windspeed.
+	[lack_batt] (s=1)&((c_now- c_ftt-c_ins)/c_full_vary<safe_t)&((c_now-c_tol)/c_full_vary<=0) -> true;
+
+	// when cannot fly to the target, then return to base;
+	[rettb] (s=3)& ((c_now- c_ftt-c_ins)/c_full_vary<safe_t) &((c_now - c_rtb)/c_full_vary>0.75)-> (c_now'=c_now- c_rtb)&(v'=2);
+	[rettb] (s=3)& ((c_now- c_ftt- c_ins)/c_full_vary<safe_t) &((c_now - c_rtb)/c_full_vary<=0.75)& ((c_now - c_rtb)/c_full_vary>=0.25) -> (c_now'=c_now - c_rtb)&(v'=1);
+	[rettb] (s=3)& ((c_now- c_ftt -c_ins)/c_full_vary<safe_t) &((c_now - c_rtb)/c_full_vary<0.25) &((c_now - c_rtb)/c_full_vary>0)-> (c_now'=c_now- c_rtb)&(v'=0);
+	[lack_batt] (s=3)& ((c_now- c_ftt-c_ins)/c_full_vary<safe_t) &((c_now - c_rtb)/c_full_vary<=0) -> true;	
+
+	[land] (s=4)&((c_now-c_tol)/c_full_vary>0.75) -> (c_now'=c_now-c_tol)&(v'=2);
+	[land] (s=4)&((c_now-c_tol)/c_full_vary<=0.75)& ((c_now-c_tol)/c_full_vary>=0.25) -> (c_now'=c_now-c_tol)&(v'=1);
+	[land] (s=4)&((c_now-c_tol)/c_full_vary<0.25)& ((c_now-c_tol)/c_full_vary>0) -> (c_now'=c_now-c_tol)&(v'=0);
+	[lack_batt] (s=4)&((c_now-c_tol)/c_full_vary<=0) -> true;
+
+
+	[end_rettb] (s=3)&((c_now - c_rtb)/c_full_vary>0.75)-> (c_now'=c_now- c_rtb)&(v'=2);
+	[end_rettb] (s=3)&((c_now - c_rtb)/c_full_vary<=0.75)& ((c_now - c_rtb)/c_full_vary>=0.25) -> (c_now'=c_now - c_rtb)&(v'=1);
+	[end_rettb] (s=3)&((c_now - c_rtb)/c_full_vary<0.25) -> (c_now'=max(0,c_now- c_rtb))&(v'=0);
+	
+	[end_land] (s=4)&((c_now-c_tol)/c_full_vary>0.75) -> (c_now'=c_now-c_tol)&(v'=2);
+	[end_land] (s=4)&((c_now-c_tol)/c_full_vary<=0.75)& ((c_now-c_tol)/c_full_vary>=0.25) -> (c_now'=c_now-c_tol)&(v'=1);
+	[end_land] (s=4)&((c_now-c_tol)/c_full_vary<0.25)& ((c_now-c_tol)/c_full_vary>0) -> (c_now'=c_now-c_tol)&(v'=0);
+	[lack_batt] (s=4)&((c_now-c_tol)/c_full_vary<=0) -> true;
+
+	[ins] ((c_now- c_ins)/c_full_vary>=safe_t)&((c_now - c_ins)/c_full_vary>0.75) -> (c_now'=c_now-c_ins)&(v'=2);
+	[ins] ((c_now- c_ins)/c_full_vary>=safe_t)&((c_now - c_ins)/c_full_vary<=0.75)& ((c_now - c_ins)/c_full_vary>=0.25) -> (c_now'=c_now - c_ins)&(v'=1);
+	[ins] ((c_now- c_ins)/c_full_vary>=safe_t)&((c_now - c_ins)/c_full_vary<0.25)  -> (c_now'=c_now- c_ins)&(v'=0);
+	//cannot do the inspection, then return to base.
+	[rettb] (s=2)& ((c_now- c_ins)/c_full_vary<safe_t) &((c_now - c_rtb)/c_full_vary>0.75)-> (c_now'=c_now- c_rtb)&(v'=2);
+	[rettb] (s=2)& ((c_now- c_ins)/c_full_vary<safe_t) &((c_now - c_rtb)/c_full_vary<=0.75)& ((c_now - c_rtb)/c_full_vary>=0.25) -> (c_now'=c_now - c_rtb)&(v'=1);
+	[rettb] (s=2)& ((c_now- c_ins)/c_full_vary<safe_t) &((c_now - c_rtb)/c_full_vary<0.25)&((c_now - c_rtb)/c_full_vary>0) -> (c_now'=c_now- c_rtb)&(v'=0);
+	[lack_batt] (s=2)& ((c_now- c_ins)/c_full_vary<safe_t) &((c_now - c_rtb)/c_full_vary<=0) -> true;
+
+	[recharge] n_charge<max_charge_num-> (c_now'=c_full_vary)&(v'=2)&(n_charge'=n_charge+1); 
+	//too many charge, replace a new battery;
+	[recharge] n_charge=max_charge_num -> (c_now'=c_full)&(v'=2)&(n_charge'=0);
+
+endmodule
+
+
+// capacity cost of take-off/landing, asuming v-low, take 0.3Ah, v-medium take 0.2Ah ,v-high take 0.1Ah.
+formula c_tol = (v=2 ? (1*wsp): (v=1 ? (2*wsp) : (3*wsp)));
+
+// capacity cost of flying to target asuming, per cell, v-low, take 0.5Ah, v-medium take 0.4Ah ,v-high take 0.3Ah.
+formula c_ftt = dis_ct* (v=2 ? (3*wsp): (v=1 ? (4*wsp) : (5*wsp)));
+
+//calculate the distance from the current position to the target position
+formula dis_ct= (max(cpos_x,tpos_x)-min(cpos_x,tpos_x))+(max(cpos_y,tpos_y)-min(cpos_y,tpos_y));
+
+//capacity cost of flying back to base, dito
+formula c_rtb = dis_cb* (v=2 ? (3*wsp): (v=1 ? (4*wsp) : (5*wsp)));
+
+//calculate the distance from the current position to base
+formula dis_cb= (max(cpos_x,base_x)-min(cpos_x,base_x))+(max(cpos_y,base_y)-min(cpos_y,base_y));
+
+// calculate the cost of inspection, asuming v-low, take 4.5Ah, v-medium take 4Ah ,v-high take 3.6Ah.
+formula c_ins=  (v=2 ? 36*wsp: (v=1 ? 40*wsp : 45*wsp));
+
+//calculate the number of wind turbines to be inspected at the target cell
+formula n_wt1= ((tpos_x=2)|(tpos_y=2))? 2 : 1;
+formula n_wt_to_ins = ((tpos_x=2)&(tpos_y=2)) ? 4 : n_wt1;
+
+rewards "num_recharge"
+	[recharge] true : 1;
+endrewards
+
+rewards "mission_time" // in minutes
+	[recharge] true : 90; //1.5 hours
+	[TO] true : 1;
+	[land] true : 1;
+	[ins] true : 15;
+	[end_land] true :1;
+	[flytt] true : (1.5*dis_ct);
+	[rettb] true : (1.5*dis_cb);
+endrewards
+
+
+
+
