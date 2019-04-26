@@ -2,7 +2,7 @@
 dtmc
 
 //version:10/04/2019 by Xingyu Zhao.
-//some corner cases: 1. take-off then fly to cell [0,0], cannot do inspection due to lack of battery, safely returned and recharge, then fly to cell [0,0] again and again until crash somewhere...
+
 
 //scenario 1: fully automatic drone inspection of a wind farm with 6*6=36 wind turbines (crossing point) and 5*5 grid (cells are transport channels)
 // a fixed controller, i.e. always starting from the [0,0] cell and move from left to right. then go up, and move from left to right, and so on so forth.
