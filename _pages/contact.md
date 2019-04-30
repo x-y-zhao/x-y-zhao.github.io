@@ -17,7 +17,7 @@ Heriot-Watt University,
 
 Riccarton Campus, EM3.16, 
 
-Edinburgh, Scotland, EH14 4AS
+Edinburgh, Scotland, EH14 4AS.
 
 Email: [xingyu.zhao@hw.ac.uk](xingyu.zhao@hw.ac.uk)
 
