@@ -11,13 +11,9 @@ redirect_from:
 
 Dr. Xingyu Zhao,
 
-School of Engineering & Physical Sciences,
+School of Engineering & Physical Sciences, Heriot-Watt University,
 
-Heriot-Watt University,
-
-Riccarton Campus, EM3.16, 
-
-Edinburgh, Scotland, EH14 4AS.
+Riccarton Campus, EM3.16, Edinburgh, Scotland, EH14 4AS.
 
 Email: <Xingyu.Zhao@hw.ac.uk>
 
