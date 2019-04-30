@@ -19,5 +19,5 @@ Riccarton Campus, EM3.16,
 
 Edinburgh, Scotland, EH14 4AS.
 
-Email: xingyu.zhao@hw.ac.uk
+Email: <Xingyu.Zhao@hw.ac.uk>
 
