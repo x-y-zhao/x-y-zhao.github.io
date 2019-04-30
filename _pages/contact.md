@@ -9,4 +9,11 @@ redirect_from:
 
 {% include base_path %}
 
-bla bla
+Dr. Xingyu Zhao,
+School of Engineering & Physical Sciences,
+Heriot-Watt University,
+Riccarton Campus, EM3.16, 
+Edinburgh, Scotland, EH14 4AS
+
+Email: xingyu.zhao@hw.ac.uk
+
