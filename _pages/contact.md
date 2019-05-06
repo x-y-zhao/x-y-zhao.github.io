@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Dr. Xingyu Zhao (赵星宇),
+Dr. Xingyu Zhao,
 
 School of Engineering & Physical Sciences, Heriot-Watt University,
 
