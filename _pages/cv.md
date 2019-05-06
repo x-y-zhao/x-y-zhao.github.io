@@ -11,6 +11,7 @@ redirect_from:
 
 TO BE DONE...
 
+<!--
 Education
 ======
 * B.S. in GitHub, GitHub University, 2012
