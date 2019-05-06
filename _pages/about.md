@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-This is Dr. Xingyu Zhao (Sing You Jaw, if this is easier..).
+This is Dr. Xingyu Zhao (Sing-You Jaw, if this is easier..).
 
 I am a postdoctoral Research Associate in the [Smart System Group](https://smartsystems.hw.ac.uk/) at the [Heriot-Watt University](https://www.hw.ac.uk/), currently working on the [Offshore Robotics for Certification of Assets (ORCA)](https://orcahub.org/) project.
 
