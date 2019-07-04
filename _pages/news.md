@@ -9,4 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
-06/2019: A paper "Towards Integrating Formal Verification of Autonomous Robots with Battery Prognostics and Health Management", joint with colleagues from University of Liverpool, is accepted to SEFM2019. 
+News for 2019:
+
+* 06/2019: Our paper "Towards Integrating Formal Verification of Autonomous Robots with Battery Prognostics and Health Management", a joint work with colleagues from the University of Liverpool, is accepted by SEFM2019. A [preprint](https://x-y-zhao.github.io/files/VeriBatterySEFM19.pdf)
+
+* 02/2019: Present our paper "Probabilistic Model Checking of Robots Deployed in Extreme Environments" at the 33rd AAAI Conference on Artificial Intelligence, Honolulu, Hawaii, 2019. A preprint version is available on [arXiv](https://arxiv.org/pdf/1812.04128.pdf)
