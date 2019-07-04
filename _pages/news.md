@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "News"
+title: "News of 2019"
 permalink: /news/
 author_profile: true
 redirect_from:
@@ -9,7 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-News for 2019:
 
 * 06/2019: Our paper "Towards Integrating Formal Verification of Autonomous Robots with Battery Prognostics and Health Management", a joint work with colleagues from the University of Liverpool, is accepted by SEFM2019. A [preprint](https://x-y-zhao.github.io/files/VeriBatterySEFM19.pdf)
 
