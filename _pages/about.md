@@ -16,7 +16,7 @@ I received my BEng in Software Engineering and MSc in Control Science and Engine
 
 My research interests include (a changing list...):
 * Exploring the limits of what can be claimed rigorously for system dependability.
-* Probabilistic model checking for autonomous systems.
+* Probabilistic verification of autonomous systems.
 * Assessment of "possible perfection" with respect to software faults.
 * Modelling of software design diversity for fault tolerance.
 
