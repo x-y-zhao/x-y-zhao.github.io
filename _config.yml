@@ -84,7 +84,7 @@ author:
   avatar           : "profile.png"
   bio              : "Research Associate at Heriot-Watt University."
   location         : "Edinburgh, U.K."
-  employer         :
+  employer         : "https://www.hw.ac.uk/"
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?user=SzEBdA8AAAAJ&hl=en"
   email            :
