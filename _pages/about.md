@@ -15,9 +15,9 @@ I am a postdoctoral Research Associate in the [Smart System Group](https://smart
 I received my BEng in Software Engineering and MSc in Control Science and Engineering from [Beihang University](https://ev.buaa.edu.cn/). I joined the [Centre for Software Reliability (CSR)](https://www.city.ac.uk/about/schools/mathematics-computer-science-engineering/research/centre-for-software-reliability), [City, University of London](https://www.city.ac.uk/) as a PhD student and obtained a Doctor degree in Computer Science under the supervision of [Professor Bev Littlewood](https://www.city.ac.uk/people/academics/bev-littlewood) and [Professor Robin Bloomfield](https://www.city.ac.uk/people/academics/robin-bloomfield).
 
 My research interests include (a changing list...):
-* Exploring the limits of what can be claimed rigorously for system dependability.
 * Probabilistic verification of autonomous systems.
-* Assessment of "possible perfection" with respect to software faults.
+* Bayesian inference with partial and limited prior knowledge.
+* Exploring the limits of what can be claimed rigorously for system dependability.
 * Modelling of software design diversity for fault tolerance.
 
 <!--- powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted --->
