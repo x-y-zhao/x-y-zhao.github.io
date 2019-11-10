@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-* 11/2019: Our paper "On Reliability Assessment When a Software-based System Is Replaced by a Thought-to-be-Better One" is accepted by Reliability Engineering and System Safety. It is another joint work with colleagues from the [Centre for Software Reliability (CSR)](https://www.city.ac.uk/about/schools/mathematics-computer-science-engineering/research/centre-for-software-reliability) at City University of London during my PhD study. Here is an [preprint](https://x-y-zhao.github.io/files/NWTES_RESS.pdf) version.
+* 11/2019: Our paper "On Reliability Assessment When a Software-based System Is Replaced by a Thought-to-be-Better One" is accepted by [Reliability Engineering and System Safety](https://www.journals.elsevier.com/reliability-engineering-and-system-safety). It is another joint work with colleagues from the [Centre for Software Reliability (CSR)](https://www.city.ac.uk/about/schools/mathematics-computer-science-engineering/research/centre-for-software-reliability) at City University of London during my PhD study. Here is an [preprint](https://x-y-zhao.github.io/files/NWTES_RESS.pdf) version.
 
 * 09/2019: Our paper "Drone Safety and Reliability Survey and Emerging Technologies Towards the Certification of Autonomous UAVs" is accepted by [ICSRS2019](http://www.icsrs.org/). Here is the [accepted](https://x-y-zhao.github.io/files/ICSRS2019.pdf) version.
 
