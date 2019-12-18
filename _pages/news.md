@@ -9,11 +9,11 @@ redirect_from:
 
 {% include base_path %}
 
-* 12/2019: Start a new project "[COVE: Continual Verification and Assurance of Robotic Systems under Uncertainty](https://orcahub.org/engagement/partnership-fund)" as a Co-Investigator. Looking forward to working with [Dr. Radu Calinescu](https://www-users.cs.york.ac.uk/~raduc/) and [Dr. Simos Gerasimou](https://www-users.cs.york.ac.uk/simos/)!
+* 12/2019: Start a new project "[COVE: Continual Verification and Assurance of Robotic Systems Under Uncertainty](https://orcahub.org/engagement/partnership-fund)" as a Co-Investigator. Looking forward to working with [Dr. Radu Calinescu](https://www-users.cs.york.ac.uk/~raduc/) and [Dr. Simos Gerasimou](https://www-users.cs.york.ac.uk/simos/)!
 
 * 11/2019: Our paper "On Reliability Assessment When a Software-based System Is Replaced by a Thought-to-be-Better One" is accepted by [Reliability Engineering and System Safety](https://www.journals.elsevier.com/reliability-engineering-and-system-safety). It is another joint work, during my PhD study, with colleagues from the [Centre for Software Reliability (CSR)](https://www.city.ac.uk/about/schools/mathematics-computer-science-engineering/research/centre-for-software-reliability) at City University of London. Here is a [preprint](https://x-y-zhao.github.io/files/NWTES_RESS.pdf) version.
 
-* 09/2019: Our paper "Drone Safety and Reliability Survey and Emerging Technologies Towards the Certification of Autonomous UAVs" is accepted by [ICSRS2019](http://www.icsrs.org/). Here is the [accepted](https://x-y-zhao.github.io/files/ICSRS2019.pdf) version.
+* 09/2019: Our paper "UAS Operators Safety and Reliability Survey: Emerging Technologies Towards the Certification of Autonomous UAS" is accepted by [ICSRS2019](http://www.icsrs.org/). Here is the [accepted](https://x-y-zhao.github.io/files/ICSRS2019.pdf) version.
 
 * 07/2019: Our paper "Assessing the Safety and Reliability of Autonomous Vehicles from Road Testing", a joint work with colleagues from the [Centre for Software Reliability (CSR)](https://www.city.ac.uk/about/schools/mathematics-computer-science-engineering/research/centre-for-software-reliability) at City University of London, is accepted by [ISSRE2019](http://2019.issre.net/) as a [Best Paper Nominee](http://2019.issre.net/node/79). Here is the [accepted](https://x-y-zhao.github.io/files/ISSRE2019.pdf) version.
 
