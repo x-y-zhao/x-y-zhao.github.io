@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "News of 2019"
+title: "News"
 permalink: /news/
 author_profile: true
 redirect_from:
@@ -8,6 +8,11 @@ redirect_from:
 ---
 
 {% include base_path %}
+## News of 2020
+
+* 02/2020: Give a talk at the [TASP: Trustworthy Adaptive and Autonomous Systems & Processes](https://www.cs.york.ac.uk/tasp/) research group, University of York. The topic is "Robust Bayesian Estimators for Transition Parameters in Probabilistic Model Checking", here is the [slides](https://x-y-zhao.github.io/files/XZ_AAIP_presentation_AAAI2019.pdf).
+
+## News of 2019
 
 * 12/2019: Start a new project "[COVE: Continual Verification and Assurance of Robotic Systems Under Uncertainty](https://orcahub.org/engagement/partnership-fund/cove)" as a Co-Investigator. Looking forward to working with [Dr. Radu Calinescu](https://www-users.cs.york.ac.uk/~raduc/) and [Dr. Simos Gerasimou](https://www-users.cs.york.ac.uk/simos/)!
 
