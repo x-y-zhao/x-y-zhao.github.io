@@ -10,6 +10,8 @@ redirect_from:
 {% include base_path %}
 ## News of 2020
 
+* 04/2020: Our paper "A Safety Framework for Critical Systems Utilising Deep Neural Networks" is accepted by [SafeComp2020](http://safecomp2020.di.fc.ul.pt/). Many thanks to our Liverpool and DSTL friends. Here is a [preprint](https://arxiv.org/pdf/2003.05311.pdf).
+
 * 02/2020: Give a talk at the [TASP: Trustworthy Adaptive and Autonomous Systems & Processes](https://www.cs.york.ac.uk/tasp/) research group, University of York. The topic is "Robust Bayesian Estimators for Transition Parameters in Probabilistic Model Checking", here is the [slides](https://x-y-zhao.github.io/files/XZ_AAIP_presentation_AAAI2019.pdf).
 
 ## News of 2019
