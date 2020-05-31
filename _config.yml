@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-UK"
-title                    : "Dr. Xingyu Zhao (赵星宇)"
+title                    : "About me"
 title_separator          : "-"
 name                     : &name "Dr. Xingyu Zhao (赵星宇)"
 description              : &description "Research Associate at Heriot-Watt University"
@@ -83,7 +83,7 @@ google_analytics: UA-160160100-1
 
 # Site Author
 author:
-  name             : "Dr. Xingyu Zhao"
+  name             : "Dr. Xingyu Zhao (赵星宇)"
   avatar           : "profile.JPG"
   bio              : "Research Associate at Heriot-Watt University."
   location         : "Edinburgh, U.K."
