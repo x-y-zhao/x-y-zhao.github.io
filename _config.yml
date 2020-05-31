@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "en-UK"
-title                    : "About me"
+title                    : "About Dr. Xingu Zhao"
 title_separator          : "-"
-name                     : &name "Dr. Xingyu Zhao (赵星宇)"
+name                     : &name "Dr. Xingyu Zhao   (赵星宇)"
 description              : &description "Research Associate at Heriot-Watt University"
 url                      : https://x-y-zhao.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
