@@ -9,7 +9,7 @@
 locale                   : "en-UK"
 title                    : "About Dr. Xingu Zhao"
 title_separator          : "-"
-name                     : &name "Dr. Xingyu Zhao   (赵星宇)"
+name                     : &name "Xingyu Zhao (赵星宇)"
 description              : &description "Research Associate at Heriot-Watt University"
 url                      : https://x-y-zhao.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -83,7 +83,7 @@ google_analytics: UA-160160100-1
 
 # Site Author
 author:
-  name             : "Dr. Xingyu Zhao (赵星宇)"
+  name             : "Xingyu Zhao (赵星宇)"
   avatar           : "profile.JPG"
   bio              : "Research Associate at Heriot-Watt University."
   location         : "Edinburgh, U.K."
