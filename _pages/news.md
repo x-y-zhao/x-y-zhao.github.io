@@ -10,6 +10,8 @@ redirect_from:
 {% include base_path %}
 ## News of 2020
 
+* 07/2020： Our paper "Interval Change-Point Detection for Runtime Probabilistic Model Checking" is accepted by [ASE2020](https://conf.researchr.org/home/ase-2020). A first joint paper with our York friends [Dr. Radu Calinescu](https://www-users.cs.york.ac.uk/~raduc/) and [Dr. Simos Gerasimou](https://www-users.cs.york.ac.uk/simos/) -- hopefully many more to come!
+
 * 04/2020: Our paper "A Safety Framework for Critical Systems Utilising Deep Neural Networks" is accepted by [SafeComp2020](http://safecomp2020.di.fc.ul.pt/). Many thanks to our Liverpool and DSTL friends for their great efforts. Here is a [preprint](https://arxiv.org/pdf/2003.05311.pdf).
 
 * 02/2020: Give a talk at the [TASP: Trustworthy Adaptive and Autonomous Systems & Processes](https://www.cs.york.ac.uk/tasp/) research group, University of York. The topic is "Robust Bayesian Estimators for Transition Parameters in Probabilistic Model Checking", here is the [slides](https://x-y-zhao.github.io/files/XZ_AAIP_presentation_AAAI2019.pdf).
