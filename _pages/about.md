@@ -16,7 +16,7 @@ I received both my BEng and MSc from [Beihang University](https://ev.buaa.edu.cn
 
 My research interests include (a changing list...):
 * Probabilistic verification of autonomous systems.
-* Bayesian inference with partial and limited prior knowledge.
+* Bayesian inference with partial and/or vague prior knowledge.
 * Exploring the limits of what can be claimed rigorously for system dependability.
 * Modeling of software design diversity for fault tolerance.
 
