@@ -15,5 +15,5 @@ School of Engineering & Physical Sciences, Heriot-Watt University,
 
 Riccarton Campus, EM3.16, Edinburgh, Scotland, EH14 4AS.
 
-Email: <Xingyu.Zhao@hw.ac.uk>
+Email: Xingyu.Zhao at hw.ac.uk
 
