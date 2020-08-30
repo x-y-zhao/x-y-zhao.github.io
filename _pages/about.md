@@ -12,7 +12,7 @@ This is Dr. Xingyu Zhao (Sing-You Jaw, if this is easier...).
 
 I am a postdoctoral Research Associate in the [Smart System Group](https://smartsystems.hw.ac.uk/) at the [Heriot-Watt University](https://www.hw.ac.uk/), currently working on the [Offshore Robotics for Certification of Assets (ORCA)](https://orcahub.org/) project. I am also a Programme Fellow at the [Assuring Autonomy International Programme (AAIP)](https://www.york.ac.uk/assuring-autonomy/), University of York.
 
-I received both my BEng and MSc from [Beihang University](https://ev.buaa.edu.cn/). I joined the [Centre for Software Reliability (CSR)](https://www.city.ac.uk/about/schools/mathematics-computer-science-engineering/research/centre-for-software-reliability), [City, University of London](https://www.city.ac.uk/) as a PhD student and obtained a doctorate degree in Computer Science under the supervision of [Professor Bev Littlewood](https://www.city.ac.uk/people/academics/bev-littlewood) and [Professor Robin Bloomfield](https://www.city.ac.uk/people/academics/robin-bloomfield).
+I received both my Bachelor and Master degrees from [Beihang University](https://ev.buaa.edu.cn/). I joined the [Centre for Software Reliability (CSR)](https://www.city.ac.uk/about/schools/mathematics-computer-science-engineering/research/centre-for-software-reliability), [City, University of London](https://www.city.ac.uk/) as a PhD student and obtained a doctorate degree in Computer Science under the supervision of [Professor Bev Littlewood](https://www.city.ac.uk/people/academics/bev-littlewood) and [Professor Robin Bloomfield](https://www.city.ac.uk/people/academics/robin-bloomfield).
 
 My research interests include (a changing list...):
 * Probabilistic verification of autonomous systems.
