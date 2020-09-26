@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 
- Sorry for being lazy... please find my publications on my [Google Scholar](https://scholar.google.com/citations?user=SzEBdA8AAAAJ&hl=en) profile.
+ Sorry for being lazy, please refer to my [Google Scholar](https://scholar.google.com/citations?user=SzEBdA8AAAAJ&hl=en) profile where I have been carefully maintaining the list of publications.
 
  If you have any problems obtaining these publications, please feel free to [contact me](https://x-y-zhao.github.io/contact/). 
 
