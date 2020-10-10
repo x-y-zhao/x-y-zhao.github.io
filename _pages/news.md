@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 ## News of 2020
 
-* 10/2020: About to start a new PDRA post at the Computer Science Department, University of Liverpool in Jan. 20201, working on a H2020 project [Foundations for Continuous Engineering of Trustworthy Autonomy (FOCETA)](https://cordis.europa.eu/project/id/956123) with [Prof. Sven Schewe](https://cgi.csc.liv.ac.uk/~sven/) and [Dr. Xiaowei Huang](https://cgi.csc.liv.ac.uk/~xiaowei/). Looking forward to it!
+* 10/2020: About to start a new PDRA post at the Computer Science Department, University of Liverpool in Jan. 2021, working on a H2020 project [Foundations for Continuous Engineering of Trustworthy Autonomy (FOCETA)](https://cordis.europa.eu/project/id/956123) with [Prof. Sven Schewe](https://cgi.csc.liv.ac.uk/~sven/) and [Dr. Xiaowei Huang](https://cgi.csc.liv.ac.uk/~xiaowei/). Looking forward to it!
 
 * 08/2020: Our journal paper "Assessing Safety-Critical Systems from Operational Testing: A Study on Autonomous Vehicles" (an extension of our [ISSRE2019 paper](https://ieeexplore.ieee.org/document/8987509)) is accepted by [Information and Software Technology](https://www.journals.elsevier.com/information-and-software-technology). Our friends from [CSR, City UoL](https://www.city.ac.uk/about/schools/mathematics-computer-science-engineering/research/centre-for-software-reliability) made a significant contribution. Here is a [preprint](https://x-y-zhao.github.io/files/IST_ISSRE2019_Extension.pdf) version.
 
