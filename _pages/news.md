@@ -10,6 +10,8 @@ redirect_from:
 {% include base_path %}
 ## News of 2020
 
+* 10/2020: About to start a new PDRA post at the Computer Science Department, University of Liverpool in Jan. 20201, working on a H2020 project [Foundations for Continuous Engineering of Trustworthy Autonomy (FOCETA)](https://cordis.europa.eu/project/id/956123) with [Prof. Sven Schewe](https://cgi.csc.liv.ac.uk/~sven/) and [Dr. Xiaowei Huang](https://cgi.csc.liv.ac.uk/~xiaowei/). Looking forward to it!
+
 * 08/2020: Our journal paper "Assessing Safety-Critical Systems from Operational Testing: A Study on Autonomous Vehicles" (an extension of our [ISSRE2019 paper](https://ieeexplore.ieee.org/document/8987509)) is accepted by [Information and Software Technology](https://www.journals.elsevier.com/information-and-software-technology). Our friends from [CSR, City UoL](https://www.city.ac.uk/about/schools/mathematics-computer-science-engineering/research/centre-for-software-reliability) made a significant contribution. Here is a [preprint](https://x-y-zhao.github.io/files/IST_ISSRE2019_Extension.pdf) version.
 
 * 07/2020： Our paper "Interval Change-Point Detection for Runtime Probabilistic Model Checking" is accepted by [ASE2020](https://conf.researchr.org/details/ase-2020/ase-2020-papers/31/Interval-Change-Point-Detection-for-Runtime-Probabilistic-Model-Checking). A first joint paper with our York friends at [TASP](https://www.cs.york.ac.uk/tasp/) -- hopefully many more to come! Here is the [accepted manuscript](https://x-y-zhao.github.io/files/ASE2020.pdf).
