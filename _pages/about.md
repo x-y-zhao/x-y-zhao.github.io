@@ -17,6 +17,7 @@ I received both my Bachelor and Master degrees from [Beihang University](https:/
 My research interests include (a changing list...):
 * Probabilistic verification of autonomous systems.
 * Bayesian inference with partial and/or vague prior knowledge.
+* Explainable AI.
 * Exploring the limits of what can be claimed rigorously for system dependability.
 * Modeling of software design diversity for fault tolerance.
 
