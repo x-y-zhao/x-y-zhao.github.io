@@ -10,10 +10,11 @@ redirect_from:
 {% include base_path %}
 
 Dr. Xingyu Zhao,
-
-School of Engineering & Physical Sciences, Heriot-Watt University,
-
-Riccarton Campus, EM3.16, Edinburgh, Scotland, EH14 4AS.
+Department of Computer Science,
+University of Liverpool,
+Ashton Street,
+Liverpool, L69 3BX,
+United Kingdom.
 
 Email: Xingyu.Zhao at liverpool.ac.uk
 
