@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-This is Dr. Xingyu Zhao (Sing-You Jaw, if this is easier...).
+This is Dr. Xingyu Zhao (Sing-You Jaw, if this was easier...).
 
 I am a postdoctoral Research Associate in the [Department of Computer Science](https://www.liverpool.ac.uk/computer-science/), University of Liverpool, as well as a Programme Fellow at the [Assuring Autonomy International Programme (AAIP)](https://www.york.ac.uk/assuring-autonomy/), University of York. Before I joined Liverpool, I was a member of the [Smart System Group](https://smartsystems.hw.ac.uk/), Heriot-Watt University.
 
