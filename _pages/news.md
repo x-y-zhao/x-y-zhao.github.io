@@ -8,6 +8,11 @@ redirect_from:
 ---
 
 {% include base_path %}
+## News of 2021
+
+* 01/2021: Give a talk at the FOCETA WP3 workshop on behalf of our Liverpool side. The topic is on reliability assessment for Deep Learning software considering evidence of robustness verification and operational testing. 
+
+
 ## News of 2020
 
 * 10/2020: About to start a new PDRA post at the Computer Science Department, University of Liverpool in Jan. 2021, working on a H2020 project [Foundations for Continuous Engineering of Trustworthy Autonomy (FOCETA)](https://cordis.europa.eu/project/id/956123) and a DSTL project [Safety Argument for Learning-enabled Autonomous Underwater Vehicles (SOLITUDE)](https://cgi.csc.liv.ac.uk/~acps/projects/SOLITUDE.html) with [Prof. Sven Schewe](https://cgi.csc.liv.ac.uk/~sven/) and [Dr. Xiaowei Huang](https://cgi.csc.liv.ac.uk/~xiaowei/). Looking forward to it!
