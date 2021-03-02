@@ -10,6 +10,8 @@ redirect_from:
 {% include base_path %}
 ## News of 2021
 
+* 02/2021: It is my great pleasure to be part of the [UAI2021](https://www.auai.org/uai2021/) this year as a PC member. Looking forward to reviewing exciting papers from the prestigious community.
+
 * 01/2021: Give a talk at the FOCETA WP3 workshop on behalf of our Liverpool side. The topic is on reliability assessment for Deep Learning software considering evidence of robustness verification and operational testing. 
 
 
