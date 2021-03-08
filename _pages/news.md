@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 ## News of 2021
 
-* 03/2021: Glad that our paper "Conservative Confidence Bounds in Safety, from Generalised Claims of Improvement & Statistical Evidence" is accepted by [DSN2021](http://dsn2021.ntu.edu.tw/index.html) (48 accepted out of 295 submissions -- 16.3%)). Thanks to my [CSR](https://researchcentres.city.ac.uk/software-reliability) colleagues Kizito and Lorenzo for their great work!
+* 03/2021: Glad that our paper "Conservative Confidence Bounds in Safety, from Generalised Claims of Improvement & Statistical Evidence" is accepted by [DSN2021](http://dsn2021.ntu.edu.tw/index.html) (48 accepted out of 295 submissions -- 16.3%). Many thanks to the great work my [CSR](https://researchcentres.city.ac.uk/software-reliability) colleagues Kizito and Lorenzo!
 
 * 02/2021: It is my great pleasure to be part of the [UAI2021](https://www.auai.org/uai2021/) this year as a PC member. Looking forward to reviewing exciting papers from the prestigious community.
 
