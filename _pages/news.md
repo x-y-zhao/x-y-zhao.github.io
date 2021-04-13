@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 ## News of 2021
 
-* 04/2021: A abstract paper is accepted by [DSN2021](http://dsn2021.ntu.edu.tw/index.html) -- "Detecting Operational Adversarial Examples for Reliable Deep Learning", here is a [preprint](https://x-y-zhao.github.io/files/DSN21_fast_abstract.pdf) version.
+* 04/2021: An abstract paper is accepted by [DSN2021](http://dsn2021.ntu.edu.tw/index.html) -- "Detecting Operational Adversarial Examples for Reliable Deep Learning", here is a [preprint](https://x-y-zhao.github.io/files/DSN21_fast_abstract.pdf) version.
 
 * 03/2021: Glad that our paper "Conservative Confidence Bounds in Safety, from Generalised Claims of Improvement & Statistical Evidence" is accepted by [DSN2021](http://dsn2021.ntu.edu.tw/index.html) (48 accepted out of 295 submissions -- 16.3%). Great work by my [CSR](https://researchcentres.city.ac.uk/software-reliability) colleagues Kizito and Lorenzo!
 
