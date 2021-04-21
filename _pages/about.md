@@ -10,7 +10,7 @@ redirect_from:
 
 This is Dr. Xingyu Zhao (Sing-You Jaw, if this was easier...).
 
-I am a postdoctoral Research Associate in the [Department of Computer Science](https://www.liverpool.ac.uk/computer-science/), University of Liverpool, as well as a Programme Fellow at the [Assuring Autonomy International Programme (AAIP)](https://www.york.ac.uk/assuring-autonomy/), University of York. Before I joined Liverpool, I was a member of the [Smart System Group](https://smartsystems.hw.ac.uk/), Heriot-Watt University.
+I am a postdoctoral Research Associate in the [Department of Computer Science](https://www.csc.liv.ac.uk/), University of Liverpool, as well as a Programme Fellow at the [Assuring Autonomy International Programme (AAIP)](https://www.york.ac.uk/assuring-autonomy/), University of York. Before I joined Liverpool, I was a member of the [Smart System Group](https://smartsystems.hw.ac.uk/), Heriot-Watt University.
 
 I received both my Bachelor and Master degrees from [Beihang University](https://ev.buaa.edu.cn/). I joined the [Centre for Software Reliability (CSR)](https://www.city.ac.uk/about/schools/mathematics-computer-science-engineering/research/centre-for-software-reliability), City University of London as a PhD student and obtained a doctorate degree in Computer Science under the supervision of [Professor Bev Littlewood](https://www.city.ac.uk/people/academics/bev-littlewood) and [Professor Robin Bloomfield](https://www.city.ac.uk/people/academics/robin-bloomfield).
 
