@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 ## News of 2021
 
-* 05/2021: Our paper "Coverage guided testing for recurrent neural networks" got accepted by (IEEE Tran. on Reliability)[https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=24]. Congratulations to our star PhD student Wei Huang and co-authors!
+* 05/2021: Our paper "Coverage guided testing for recurrent neural networks" got accepted by [IEEE Tran. on Reliability](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=24). Congratulations to our star PhD student Wei Huang and co-authors!
 
 * 04/2021: An abstract paper is accepted by [DSN2021](http://dsn2021.ntu.edu.tw/index.html) -- "Detecting Operational Adversarial Examples for Reliable Deep Learning", here is a [preprint](https://arxiv.org/pdf/2104.06015.pdf) version.
 
