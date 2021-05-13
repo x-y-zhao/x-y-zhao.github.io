@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 ## News of 2021
 
-* 05/2021: My first XAI paper "BayLIME: Bayesian Local Interpretable Model-Agnostic Explanations" is accepted by [UAI2021](https://www.auai.org/uai2021/), thanks to the great efforts of my co-authors. BayLIME is a Bayesian modification of LIME that exploits prior knowledge and Bayesian reasoning to improve the consistency in repeated explanations, the robustness to kernel settings and explanation fidelity.
+* 05/2021: A first XAI paper of mine "BayLIME: Bayesian Local Interpretable Model-Agnostic Explanations" is accepted by [UAI2021](https://www.auai.org/uai2021/), thanks to the great efforts of my co-authors. BayLIME is a Bayesian modification of LIME that exploits prior knowledge and Bayesian reasoning to improve the consistency in repeated explanations, the robustness to kernel settings and explanation fidelity.
 
 * 05/2021: Our journal paper "Coverage Guided Testing for Recurrent Neural Networks" ([preprint](https://livrepository.liverpool.ac.uk/id/eprint/3121687)) got accepted by [IEEE Tran. on Reliability](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=24). Congratulations to our star PhD student Wei Huang and all co-authors!
 
