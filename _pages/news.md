@@ -18,7 +18,7 @@ redirect_from:
 
 * 04/2021: An abstract paper is accepted by [DSN2021](http://dsn2021.ntu.edu.tw/index.html) -- "Detecting Operational Adversarial Examples for Reliable Deep Learning", here is a [preprint](https://arxiv.org/pdf/2104.06015.pdf) version. Hopefully the more exciting parts, results to the research questions articulated, will come soon.
 
-* 03/2021: Glad that our paper "Conservative Confidence Bounds in Safety, from Generalised Claims of Improvement & Statistical Evidence" is accepted by [DSN2021](http://dsn2021.ntu.edu.tw/index.html) (48 accepted out of 295 submissions -- 16.3%). Great work by my [CSR](https://researchcentres.city.ac.uk/software-reliability) colleagues Kizito and Lorenzo! Here is a [preprint](https://livrepository.liverpool.ac.uk/3119150/) version.
+* 03/2021: Glad that our paper "Conservative Confidence Bounds in Safety, from Generalised Claims of Improvement & Statistical Evidence" is accepted by [DSN2021](http://dsn2021.ntu.edu.tw/index.html) (48 accepted out of 295 submissions -- 16.3%). Great work by my [CSR](https://researchcentres.city.ac.uk/software-reliability) colleagues Kizito and Lorenzo! Here is a [preprint](https://openaccess.city.ac.uk/id/eprint/26128/1/DSN2021_178_PostReview.pdf) version.
 
 * 02/2021: It is my great pleasure to be part of the [UAI2021](https://www.auai.org/uai2021/) this year as a PC member. Looking forward to reviewing exciting papers from the prestigious community.
 
