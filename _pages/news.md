@@ -10,6 +10,8 @@ redirect_from:
 {% include base_path %}
 ## News of 2021
 
+* 07/2021: A huge congrats to our PhD student [Wei Huang](https://scholar.google.com/citations?user=qwqKoMAAAAAJ&hl=en) (co-supervised by [Xiaowei](https://cgi.csc.liv.ac.uk/~xiaowei/) and me) who is the winner of [Siemens AI-Dependability-Assessment-Student-Challenge](https://ecosystem.siemens.com/topic/detail/default/33). Well deserved!
+
 * 06/2021: Our paper "Assessing the Reliability of Deep Learning Classifiers Through Robustness Evaluation and Operational Profiles" is accepted at the workshop [AISafety'21](https://www.aisafetyw.org/) co-located with IJCAI'21. Here is the [accepted version](https://arxiv.org/pdf/2106.01258.pdf).
 
 * 05/2021: A first XAI paper of mine "BayLIME: Bayesian Local Interpretable Model-Agnostic Explanations" is accepted by [UAI2021](https://www.auai.org/uai2021/), thanks to the great efforts of my co-authors. BayLIME (the accepted [preprint](https://arxiv.org/abs/2012.03058)) is a Bayesian modification of LIME that exploits prior knowledge and Bayesian reasoning to improve the consistency in repeated explanations, the robustness to kernel settings and explanation fidelity.
