@@ -8,6 +8,10 @@ author_profile: true
 
  Sorry for being lazy, please refer to my [Google Scholar](https://scholar.google.com/citations?user=SzEBdA8AAAAJ&hl=en) profile where I am **carefully maintaining** the list of my publications.
 
+
+You may also find some presentations of my conference publications at my [YouTube channel](https://www.youtube.com/channel/UCGqYcqGotIbai0ghAef0FPA).
+
+
  If you have any problems obtaining these publications, please feel free to [contact me](https://x-y-zhao.github.io/contact/). 
 
 
