@@ -17,6 +17,8 @@ author_profile: true
 * [FOCETA](http://www.foceta-project.eu/) (2021-2023): Foundations for Continuous Engineering of Trustworthy Autonomy. <!-- The original website https://cordis.europa.eu/project/id/956123 -->
 * [AAIP](https://www.york.ac.uk/assuring-autonomy/) (2019-2023): Assuring Autonomy International Programme.
 * [ORCA](https://orcahub.org/) (2018-2021): Offshore Robotics for Certification of Asset Hub, WP4 Robot & Asset Self-Certification.
-* [DISPO](https://researchcentres.city.ac.uk/software-reliability/research/research-projects/dispo) (2013-2018): Diverse Software Project.
-* [D3S](https://www.city.ac.uk/news/2015/march/researchers-at-citys-centre-for-software-reliability-are-the-recipients-of-a-563,089?_ga=2.59807981.1333885745.1591914624-1211411249.1591914624) (2017-2018): Diversity and Defense in Depth for Security – A Probabilistic Approach.
+
+
+
+<!--- * [D3S](https://www.city.ac.uk/news/2015/march/researchers-at-citys-centre-for-software-reliability-are-the-recipients-of-a-563,089?_ga=2.59807981.1333885745.1591914624-1211411249.1591914624) (2017-2018): Diversity and Defense in Depth for Security – A Probabilistic Approach.--->
 
