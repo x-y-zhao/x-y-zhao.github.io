@@ -10,9 +10,9 @@ redirect_from:
 {% include base_path %}
 ## News of 2021
 
-* 08/2021: Our [AISafety'21 paper](https://arxiv.org/pdf/2106.01258.pdf) won the [best paper award](https://www.aisafetyw.org/best-paper-award).
+* 08/2021: Our [AISafety'21 paper](https://arxiv.org/pdf/2106.01258.pdf) won the [best paper award](https://www.aisafetyw.org/best-paper-award), while we are working hard on its journal version! Hopefully it will come out soon.
 
-07/2021: A huge congrats to our PhD student [Wei Huang](https://scholar.google.com/citations?user=qwqKoMAAAAAJ&hl=en) (co-supervised by [Xiaowei](https://cgi.csc.liv.ac.uk/~xiaowei/) and me) who is the winner of [Siemens AI-Dependability-Assessment-Student-Challenge](https://ecosystem.siemens.com/topic/detail/default/33). Well deserved!
+* 07/2021: A huge congrats to our PhD student [Wei Huang](https://scholar.google.com/citations?user=qwqKoMAAAAAJ&hl=en) (co-supervised by [Xiaowei](https://cgi.csc.liv.ac.uk/~xiaowei/) and me) who is the winner of [Siemens AI-Dependability-Assessment-Student-Challenge](https://ecosystem.siemens.com/topic/detail/default/33). Well deserved!
 
 * 06/2021: Our paper "Assessing the Reliability of Deep Learning Classifiers Through Robustness Evaluation and Operational Profiles" is accepted at the workshop [AISafety'21](https://www.aisafetyw.org/) co-located with IJCAI'21. Here is the [accepted version](https://arxiv.org/pdf/2106.01258.pdf).
 
