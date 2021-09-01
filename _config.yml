@@ -10,7 +10,7 @@ locale                   : "en-UK"
 title                    : "About Dr. Xingyu Zhao"
 title_separator          : "-"
 name                     : &name "Xingyu Zhao (赵星宇)"
-description              : &description "Research Associate at the University of Liverpool"
+description              : &description "Lecturer in AI, University of Liverpool"
 url                      : https://x-y-zhao.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "x-y-zhao/x-y-zhao.github.io"
@@ -50,10 +50,10 @@ atom_feed:
   path                   : # blank (default) uses feed.xml
 
 # SEO Related
-google_site_verification : "Dr. Xingyu Zhao (赵星宇) Research Associate at the University of Liverpool"
-bing_site_verification   : "Dr. Xingyu Zhao (赵星宇) Research Associate at the University of Liverpool"
-alexa_site_verification  : "Dr. Xingyu Zhao (赵星宇) Research Associate at the University of Liverpool"
-yandex_site_verification : "Dr. Xingyu Zhao (赵星宇) Research Associate at the University of Liverpool"
+google_site_verification : "Dr. Xingyu Zhao (赵星宇) Lecturer in AI at University of Liverpool"
+bing_site_verification   : "Dr. Xingyu Zhao (赵星宇) Lecturer in AI at University of Liverpool"
+alexa_site_verification  : "Dr. Xingyu Zhao (赵星宇) Lecturer in AI at University of Liverpool"
+yandex_site_verification : "Dr. Xingyu Zhao (赵星宇) Lecturer in AI at University of Liverpool"
 
 # Social Sharing
 twitter:
@@ -85,7 +85,7 @@ google_analytics: UA-160160100-1
 author:
   name             : "Xingyu Zhao (赵星宇)"
   avatar           : "profile.jpg"
-  bio              : "Research Associate at the University of Liverpool."
+  bio              : "Lecturer in AI at University of Liverpool."
   location         : "Liverpool, U.K."
   employer         : 
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
