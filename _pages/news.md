@@ -10,6 +10,8 @@ redirect_from:
 {% include base_path %}
 ## News of 2021
 
+* 09/2021: Our paper on "Embedding and Extraction of Knowledge in Tree Ensemble Classifiers" is accepted by the Springer journal of [Machine Learning](https://www.springer.com/journal/10994). Here is an [preprint](https://arxiv.org/abs/2010.08281).
+
 * 08/2021: Our [AISafety'21 paper](https://arxiv.org/pdf/2106.01258.pdf) won the [best paper award](https://www.aisafetyw.org/best-paper-award), while we are working hard on its journal version! Hopefully it will come out soon.
 
 * 07/2021: A huge congrats to our PhD student [Wei Huang](https://scholar.google.com/citations?user=qwqKoMAAAAAJ&hl=en) (co-supervised by [Xiaowei](https://cgi.csc.liv.ac.uk/~xiaowei/) and me) who is the winner of [Siemens AI-Dependability-Assessment-Student-Challenge](https://ecosystem.siemens.com/topic/detail/default/33). Well deserved!
