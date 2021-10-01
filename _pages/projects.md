@@ -10,7 +10,7 @@ author_profile: true
 
 * [SOLITUDE](https://cgi.csc.liv.ac.uk/~acps/projects/SOLITUDE.html) (2021-2022): Safety Argument for Learning-enabled Autonomous Underwater Vehicles (£400K).
 
-* COVE(https://orcahub.org/engagement/partnership-fund/cove) (2020-2021): Continual Verification and Assurance of Robotic Systems under Uncertainty (£300K).
+* [COVE](https://orcahub.org/engagement/partnership-fund/cove) (2020-2021): Continual Verification and Assurance of Robotic Systems under Uncertainty (£300K).
 
 ## Projects as a researcher (PDRA or PhD student)
 
