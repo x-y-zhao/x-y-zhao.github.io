@@ -8,11 +8,11 @@ author_profile: true
 ## PhD Supervision
 
 
-I am always recruiting new PhD candidates with interests in one of the following areas:
-* Safe, secure and explainable AI
+I am currently recruiting new PhD candidates with interests in some of the following areas:
+* Safe, Secure and Explainable AI
 * Software Reliability Engineering
 * Probabilistic Verification
-* Safety Assurance
+* Assurance for Autonomous Systems
 
 If you are highly motivated and have a strong mathematical background, algorithm design and software development skills, please [contact me](https://x-y-zhao.github.io/contact/). 
 
