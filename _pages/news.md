@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 ## News of 2021
 
-* 09/2021: Our paper on "Embedding and Extraction of Knowledge in Tree Ensemble Classifiers" is accepted by the Springer journal of [Machine Learning](https://www.springer.com/journal/10994). Here is an [preprint](https://arxiv.org/abs/2010.08281).
+* 09/2021: Our paper on "Embedding and Extraction of Knowledge in Tree Ensemble Classifiers" is accepted by the Springer journal of [Machine Learning](https://doi.org/10.1007/s10994-021-06068-6).
 
 * 08/2021: Our [AISafety'21 paper](https://arxiv.org/pdf/2106.01258.pdf) won the [best paper award](https://www.aisafetyw.org/best-paper-award), while we are working hard on its journal version! Hopefully it will come out soon.
 
