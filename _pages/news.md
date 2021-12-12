@@ -8,6 +8,9 @@ redirect_from:
 ---
 
 {% include base_path %}
+
+## This website stops updating after 1st-Jan-2022. Please ref to my new website at [https://www.xzhao.me/](https://www.xzhao.me/)
+
 ## News of 2021
 
 * 09/2021: Our paper on "Embedding and Extraction of Knowledge in Tree Ensemble Classifiers" is accepted by the Springer journal of [Machine Learning](https://doi.org/10.1007/s10994-021-06068-6).

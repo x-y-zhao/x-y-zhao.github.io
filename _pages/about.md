@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-## This website stops updating after 1st/Jan/2022. Please ref to my new website at https://www.xzhao.me/
+## This website stops updating after 1st-Jan-2022. Please ref to my new website at [https://www.xzhao.me/](https://www.xzhao.me/)
 
 
 This is Dr. Xingyu Zhao (Sing-You Jaw, if this was easier...).
