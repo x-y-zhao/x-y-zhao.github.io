@@ -8,6 +8,9 @@ redirect_from:
   - /about.html
 ---
 
+## This website stops updating after 1st/Jan/2022. Please ref to my new website at https://www.xzhao.me/
+
+
 This is Dr. Xingyu Zhao (Sing-You Jaw, if this was easier...).
 
 I am a Lecturer (Assistant Professor) at the [Department of Computer Science](https://www.liverpool.ac.uk/computer-science/staff/xingyu-zhao/), University of Liverpool, as well as a Programme Fellow at the [Assuring Autonomy International Programme (AAIP)](https://www.york.ac.uk/assuring-autonomy/), University of York. Before I joined Liverpool, I was a member of the [Smart System Group](https://smartsystems.hw.ac.uk/), Heriot-Watt University.
